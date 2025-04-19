@@ -1,7 +1,15 @@
+import HeroSection from "@/components/HeroSection";
+import FeaturedCourses from "@/components/FeaturedCourses";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import TestimonialCards from "@/components/TestimonialCards";
+
 export default function Home() {
   return (
-    <main className="min-h-[200vh] dark:bg-black/[0.96] bg-grid-white/[0.02]">
-      <h1 className="text-center text-2xl">Rupam Mondal</h1>
+    <main className="dark:bg-black/[0.96] bg-grid-white/[0.02]">  
+      <HeroSection />
+      <FeaturedCourses />
+      <WhyChooseUs />
+      <TestimonialCards />
     </main>
   );
 }

@@ -4,12 +4,31 @@
   --background: #ffffff;
   --foreground: #171717;
 }
+ 
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
+  }
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +42,24 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  height: 0px !important ; /* Makes scrollbar very small */
+  width: 0px !important; /* Makes scrollbar very small */
+  background: transparent !important; /* Keeps scrollbar invisible */
+  box-shadow: none !important; /* No shadow */
+}
+
+.no-scrollbar::-webkit-scrollbar-track {
+  background: transparent !important; /* Keeps track invisible */
+}
+
+.no-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2) !important; /* Light scrollbar thumb */
+  border-radius: 10px !important; /* Rounded edges */
+}
+
+.no-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4) !important; /* Slightly visible on hover */
 }
