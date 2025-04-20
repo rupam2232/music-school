@@ -32,8 +32,8 @@ export const WavyBackground = ({
     nt: number,
     i: number,
     x: number,
-    ctx: any,
-    canvas: any;
+    ctx: CanvasRenderingContext2D | null,
+    canvas: HTMLCanvasElement | null;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const getSpeed = () => {
     switch (speed) {
@@ -48,12 +48,15 @@ export const WavyBackground = ({
 
   const init = () => {
     canvas = canvasRef.current;
+    if (!canvas) return; // Ensure canvas is not null
     ctx = canvas.getContext("2d");
+    if (!ctx) return; // Ensure ctx is not null
     w = ctx.canvas.width = window.innerWidth;
     h = ctx.canvas.height = window.innerHeight;
     ctx.filter = `blur(${blur}px)`;
     nt = 0;
     window.onresize = function () {
+      if (!ctx) return; // Ensure ctx is not null
       w = ctx.canvas.width = window.innerWidth;
       h = ctx.canvas.height = window.innerHeight;
       ctx.filter = `blur(${blur}px)`;
@@ -72,6 +75,7 @@ export const WavyBackground = ({
   const drawWave = (n: number) => {
     nt += getSpeed();
     for (i = 0; i < n; i++) {
+      if (!ctx) return; // Ensure ctx is not null
       ctx.beginPath();
       ctx.lineWidth = waveWidth || 50;
       ctx.strokeStyle = waveColors[i % waveColors.length];
@@ -86,6 +90,7 @@ export const WavyBackground = ({
 
   let animationId: number;
   const render = () => {
+    if (!ctx) return; // Ensure ctx is not null
     ctx.fillStyle = backgroundFill || "black";
     ctx.globalAlpha = waveOpacity || 0.5;
     ctx.fillRect(0, 0, w, h);
