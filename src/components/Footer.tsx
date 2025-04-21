@@ -5,7 +5,9 @@ const Footer = () => {
     <footer className="dark:bg-black dark:text-gray-400 text-gray-600 py-12">
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-8">
         <div>
-          <h2 className="dark:text-white text-black text-lg font-semibold mb-4">About Us</h2>
+          <h2 className="dark:text-white text-black text-lg font-semibold mb-4">
+            About Us
+          </h2>
           <p className="mb-4">
             Music School is a premier institution dedicated to teaching the art
             and science of music. We nurture talent from the ground up,
@@ -13,7 +15,9 @@ const Footer = () => {
           </p>
         </div>
         <div>
-          <h2 className="dark:text-white text-black text-lg font-semibold mb-4">Quick Links</h2>
+          <h2 className="dark:text-white text-black text-lg font-semibold mb-4">
+            Quick Links
+          </h2>
           <ul>
             <li>
               <a
@@ -50,7 +54,9 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <h2 className="dark:text-white text-black text-lg font-semibold mb-4">Follow Us</h2>
+          <h2 className="dark:text-white text-black text-lg font-semibold mb-4">
+            Follow Us
+          </h2>
           <div className="flex space-x-4">
             <a
               href="#"
@@ -73,16 +79,31 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <h2 className="dark:text-white text-black text-lg font-semibold mb-4">Contact Us</h2>
+          <h2 className="dark:text-white text-black text-lg font-semibold mb-4">
+            Contact Us
+          </h2>
           <p>Kalyani, West Bengal, India</p>
           <p>Kalyani 741235</p>
-          <p>Email: info@musicschool.com</p>
+          <p>
+            Email:
+            <a
+              href="mailto:rupammondal2232@gmail.com"
+              className="dark:hover:text-white hover:text-black transition-colors duration-300 ml-1"
+            >
+              rupammondal2232@gmail.com
+            </a>
+          </p>
           <p>Phone: (123) 456-7890</p>
         </div>
       </div>
-      <p className="text-center text-xs pt-8">
+      <div className="text-center text-xs pt-8">
+      <p className="mb-2 text-base">
+        Made with 🤍 by <a target="_blank" rel="noopener noreferrer" href="https://x.com/rupam2232">Rupam</a>
+      </p>
+      <p className="mt-2">
         © {currentYear} Music School. All rights reserved.
       </p>
+      </div>
     </footer>
   );
 };
